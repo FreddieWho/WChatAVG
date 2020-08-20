@@ -5,5 +5,6 @@ class Player:
        self.looks = looks
        self.appearance = appearance
        
+       
 
 
