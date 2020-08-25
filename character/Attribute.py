@@ -14,16 +14,16 @@ class Attribution():
         for ArgNames in kwargs.keys():
             Attr_names[ArgNames] = kwargs[ArgNames]
 
-    def output():
+    def output(self):
         if self.Distribution == 'None':
-            return Level
+            return self.Level
         elif self.Distribution == 'truncNorm':
             distFunc = stats.truncnorm(low, high, mean, sigma)
             return distFunc.rvs(1)
 
 
 class ExpLevel():
-    def __init__(self, ExpPool_Size=99, Speed=1, Level=0):
+    def __init__(self, Name, ExpPool_Size=99, Speed=1, Level=0):
         self.ExpPool = np.append(np.zeros(ExpPool_Size), 1)
         self.Speed = Speed
         self.Level = Level
@@ -31,16 +31,16 @@ class ExpLevel():
         self.Name = Name
 
     # 注意检查speed大于ExpPool_Size时的期望
-    def use(speed=self.speed, vebose=T):
+    def use(self, speed, vebose=True):
         np.random.seed(round(time.time()))
-        if np.random.choice(self.ExpPool, self.speed).sum == 1:
+        if np.random.choice(self.ExpPool, speed).sum == 1:
             self.Level = self.Level + 1
             print(u'duang,' + self.Name + u'升级了')
         else:
             if vebose:
                 print(u'获得了' + speed + u'点经验')
-            self.ExpPool = self.ExpPool[self.speed:]
+            self.ExpPool = self.ExpPool[self.Speed:]
 
-    def get(getExp):
+    def get(self, getExp):
         for i in range(getExp):
             self.use(speed=getExp)
