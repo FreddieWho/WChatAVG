@@ -4,7 +4,7 @@ import time
 
 
 class Attribution():
-    def __init__(self, Name, Class, Level, Distribution, **kwargs):
+    def __init__(self, Name, *Class, Level, Distribution, **kwargs):
         self.Name = Name
         self.Class = Class
         self.Level = Level
@@ -18,7 +18,7 @@ class Attribution():
         if self.Distribution == 'None':
             return self.Level
         elif self.Distribution == 'truncNorm':
-            distFunc = stats.truncnorm(low, high, mean, sigma)
+            distFunc = stats.truncnorm(self.low, self.high, self.mean, self.sigma)
             return distFunc.rvs(1)
 
 

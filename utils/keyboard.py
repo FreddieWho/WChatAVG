@@ -1,6 +1,3 @@
-import sys
-
-
 class keyboard:
     @staticmethod
     def next():
