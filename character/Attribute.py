@@ -23,24 +23,27 @@ class Attribution():
 
 
 class ExpLevel():
-    def __init__(self, Name, ExpPool_Size=99, Speed=1, Level=0):
-        self.ExpPool = np.append(np.zeros(ExpPool_Size), 1)
-        self.Speed = Speed
-        self.Level = Level
-        # 解决类的name的继承问题
-        self.Name = Name
+    @staticmethod
+    def test(Player):
+        print(Player.ExpPool)
 
+    @staticmethod
     # 注意检查speed大于ExpPool_Size时的期望
-    def use(self, speed, vebose=True):
-        np.random.seed(round(time.time()))
-        if np.random.choice(self.ExpPool, speed).sum == 1:
-            self.Level = self.Level + 1
-            print(u'duang,' + self.Name + u'升级了')
-        else:
-            if vebose:
-                print(u'获得了' + speed + u'点经验')
-            self.ExpPool = self.ExpPool[self.Speed:]
+    def use(Player, speed = 1, vebose=True):
 
-    def get(self, getExp):
-        for i in range(getExp):
-            self.use(speed=getExp)
+        print(u'获得了' + str(speed) + u'点经验')
+        
+        np.random.seed(round(time.time()))
+
+        ExpPool_array = np.append(np.zeros(Player.ExpPool),1)
+        UpLevel = int(np.random.choice(ExpPool_array, speed).sum())
+        if UpLevel >= 1:
+            Player.Level = Player.Level + UpLevel
+            print(u'duang,' + Player.Name + u'升了' + str(UpLevel) + u'级')
+            Player.ExpPool = 99
+        else:
+            if speed > Player.ExpPool + 1:
+                Player.Level = Player.Level + 1
+                Player.ExpPool = 99
+            else:
+                Player.ExpPool = Player.ExpPool-speed

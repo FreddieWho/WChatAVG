@@ -1,4 +1,5 @@
 import utils.keyboard
+from character.Attribute import ExpLevel
 
 
 class Player:
@@ -18,5 +19,5 @@ class Player:
 
             # basic attributions
             self.Level = 1
-
+            self.ExpPool = 99
             print(u'角色创建完成')
