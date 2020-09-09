@@ -16,4 +16,7 @@ class Player:
             print(u'你的长相是：')
             self.Appearence = input()
 
+            # basic attributions
+            self.Level = 1
+
             print(u'角色创建完成')
