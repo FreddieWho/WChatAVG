@@ -18,7 +18,8 @@ class Attribution():
         if self.Distribution == 'None':
             return self.Level
         elif self.Distribution == 'truncNorm':
-            distFunc = stats.truncnorm(self.low, self.high, self.mean, self.sigma)
+            distFunc = stats.truncnorm(
+                self.low, self.high, self.mean, self.sigma)
             return distFunc.rvs(1)
 
 
@@ -28,22 +29,18 @@ class ExpLevel():
         print(Player.ExpPool)
 
     @staticmethod
-    # 注意检查speed大于ExpPool_Size时的期望
-    def use(Player, speed = 1, vebose=True):
+    def use(Player, speed=1, vebose=True):
 
         print(u'获得了' + str(speed) + u'点经验')
-        
+
         np.random.seed(round(time.time()))
 
-        ExpPool_array = np.append(np.zeros(Player.ExpPool),1)
-        UpLevel = int(np.random.choice(ExpPool_array, speed).sum())
-        if UpLevel >= 1:
-            Player.Level = Player.Level + UpLevel
-            print(u'duang,' + Player.Name + u'升了' + str(UpLevel) + u'级')
-            Player.ExpPool = 99
-        else:
-            if speed > Player.ExpPool + 1:
+        for i in range(speed):
+            ExpPool_array = np.append(np.zeros(Player.ExpPool), 1)
+            UpLevel = int(np.random.choice(ExpPool_array, 1).sum())
+            if UpLevel == 1:
                 Player.Level = Player.Level + 1
+                print(u'duang,' + Player.Name + u'升了' + str(UpLevel) + u'级')
                 Player.ExpPool = 99
             else:
-                Player.ExpPool = Player.ExpPool-speed
+                Player.ExpPool = Player.ExpPool-1

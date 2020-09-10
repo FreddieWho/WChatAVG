@@ -1,3 +1,7 @@
 {
-    "xiaohudejiangling":{"name":"非哥的降临"}
+    "Weapon_01":{
+        "Name":"最强嘴炮",
+        "DamageType":"Magic",
+        "Damage":2,
+        "Distribution":}
 }

@@ -3,6 +3,22 @@ from character.Attribute import ExpLevel
 
 
 class Player:
+    def __init__(self):
+        # basic attributions
+        self.Level = 1
+        self.ExpPool = 99
+        self.HP = 100
+        self.MP = 100
+
+        self.MagicDamage = 3
+        self.PhysicDamage = 3
+
+        self.MagicDefence = 1
+        self.PhysicDefence = 1
+
+        self.Accuracy = 0.9
+        self.Evade = 0.1
+
     def create(self):
         if hasattr(self, 'Name'):
             print(u'你已经创建了角色')
@@ -17,7 +33,4 @@ class Player:
             print(u'你的长相是：')
             self.Appearence = input()
 
-            # basic attributions
-            self.Level = 1
-            self.ExpPool = 99
             print(u'角色创建完成')
