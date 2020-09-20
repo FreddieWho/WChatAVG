@@ -49,11 +49,13 @@ class Distribution():
         return(x*10)
 
     @staticmethod
-    def Critical(x)
+    def Critical():
         rand = np.random.choice(np.linspace(0,1,1000), 1)
         y = np.exp(4-5.3*rand)        
-        return(x * y)
+        return(y)
 
     @staticmethod
     def Norm(x):
+        X = stats.truncnorm(-5, 5, loc=10, scale=1)
+        y = X.rvs(size = 1)
         
