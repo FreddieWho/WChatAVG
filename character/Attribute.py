@@ -33,8 +33,6 @@ class ExpLevel():
 
         print(u'获得了' + str(speed) + u'点经验')
 
-        np.random.seed(round(time.time()))
-
         for i in range(speed):
             ExpPool_array = np.append(np.zeros(Player.ExpPool), 1)
             UpLevel = int(np.random.choice(ExpPool_array, 1).sum())
@@ -44,3 +42,18 @@ class ExpLevel():
                 Player.ExpPool = 99
             else:
                 Player.ExpPool = Player.ExpPool-1
+
+class Distribution():
+    @staticmethod
+    def Unif(x):
+        return(x*10)
+
+    @staticmethod
+    def Critical(x)
+        rand = np.random.choice(np.linspace(0,1,1000), 1)
+        y = np.exp(4-5.3*rand)        
+        return(x * y)
+
+    @staticmethod
+    def Norm(x):
+        
