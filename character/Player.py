@@ -10,14 +10,18 @@ class Player:
         self.HP = 100
         self.MP = 100
 
-        self.MagicDamage = 3
-        self.PhysicDamage = 3
+        self.DamageIndex = 1+getattr(self,'Level')*0.1
+
+        #self.MagicDamage = 3
+        #self.PhysicDamage = 3
 
         self.MagicDefence = 1
         self.PhysicDefence = 1
 
         self.Accuracy = 0.9
         self.Evade = 0.1
+
+        self.Position = np.random.randint(0,len(WorldMap),size=1)
 
     def create(self):
         if hasattr(self, 'Name'):
@@ -34,3 +38,6 @@ class Player:
             self.Appearence = input()
 
             print(u'角色创建完成')
+    
+    def move(self,to):
+        if
