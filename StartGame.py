@@ -1,4 +1,12 @@
-import Map as Map
+from Map import Map
 
-# initiallize world map
-WorldMap = TheWorld()
+
+
+def run():
+    # initiallize world map
+    WorldMap = Map.TheWorld()
+    
+    
+
+if __name__ == '__main__':
+    run()

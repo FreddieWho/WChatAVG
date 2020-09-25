@@ -21,7 +21,7 @@ class Player:
         self.Accuracy = 0.9
         self.Evade = 0.1
 
-        self.Position = np.random.randint(0,len(WorldMap),size=1)
+        self.Position = np.random.randint(0,len(WorldMap.graph),size=1)
 
     def create(self):
         if hasattr(self, 'Name'):
@@ -40,4 +40,5 @@ class Player:
             print(u'角色创建完成')
     
     def move(self,to):
-        if
+        if(to == self.Position):
+            print(u'')
