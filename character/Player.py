@@ -1,6 +1,8 @@
 import utils.keyboard
 from character.Attribute import ExpLevel
-
+import _thread
+import numpy as np
+import 
 
 class Player:
     def __init__(self):
@@ -23,6 +25,8 @@ class Player:
 
         self.Position = np.random.randint(0,len(WorldMap.graph),size=1)
 
+        self.timeStamp = time.time()
+
     def create(self):
         if hasattr(self, 'Name'):
             print(u'你已经创建了角色')
@@ -39,6 +43,8 @@ class Player:
 
             print(u'角色创建完成')
     
-    def move(self,to):
-        if(to == self.Position):
-            print(u'')
+    @timeChecker(delay = 5)
+    def move(self,context = 'fk'):#self,to):
+        # if(to == self.Position):
+        _thread.start_new_thread( print_time, (context, 4) )
+
