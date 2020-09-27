@@ -4,6 +4,7 @@ import _thread
 import numpy as np
 import 
 
+
 class Player:
     def __init__(self):
         # basic attributions
@@ -12,10 +13,10 @@ class Player:
         self.HP = 100
         self.MP = 100
 
-        self.DamageIndex = 1+getattr(self,'Level')*0.1
+        self.DamageIndex = 1+getattr(self, 'Level')*0.1
 
-        #self.MagicDamage = 3
-        #self.PhysicDamage = 3
+        # self.MagicDamage = 3
+        # self.PhysicDamage = 3
 
         self.MagicDefence = 1
         self.PhysicDefence = 1
@@ -23,7 +24,7 @@ class Player:
         self.Accuracy = 0.9
         self.Evade = 0.1
 
-        self.Position = np.random.randint(0,len(WorldMap.graph),size=1)
+        self.Position = np.random.randint(0, len(WorldMap.graph), size=1)
 
         self.timeStamp = time.time()
 
@@ -43,8 +44,24 @@ class Player:
 
             print(u'角色创建完成')
     
-    @timeChecker(delay = 5)
-    def move(self,context = 'fk'):#self,to):
-        # if(to == self.Position):
+    def move(self,to):
+        path = (self.Position,WorldMap.dict[to])
+
+        if path in WorldMap.graph.edges:
+            dist = WorldMap.graph.edges
+        else:
+            dist = WorldMap.graph.edges[path]['weight']
+        
+        if 
+
+        delay = 
+        tmpTimeStamp = time.time()
+
+        if tmpTimeStamp - self.TimeStamp > delay:
+            # move func
+        else:
+
+
         _thread.start_new_thread( print_time, (context, 4) )
+
 
