@@ -18,12 +18,7 @@ class keyboard:
         print(u'(---请输入---)')
         user_input = input().strip()
 
-        while 1:
-            if not user_input:
-                print(u'---输入为空, 请重新输入---')
-                user_input = input().strip()
-            else:
-                break
+
         return user_input
 
 def get_key (dict, value):

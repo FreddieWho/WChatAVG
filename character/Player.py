@@ -15,15 +15,6 @@ class Player:
 
         self.DamageIndex = 1+getattr(self, 'Level')*0.1
 
-        # self.MagicDamage = 3
-        # self.PhysicDamage = 3
-
-        self.MagicDefence = 1
-        self.PhysicDefence = 1
-
-        self.Accuracy = 0.9
-        self.Evade = 0.1
-
         self.Position = np.random.randint(0, len(WorldMap.graph), size=1)
 
         self.timeStamp = time.time()
